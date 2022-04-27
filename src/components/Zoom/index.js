@@ -1,23 +1,21 @@
-// import  zoom  from 'jquery-zoom';
-// import $ from 'jquery';
+import './styles.scss'
 
 const Zoom = ({img, id, alt}) =>{
 
     function zoom(e){
         var zoomer = e.currentTarget;
-        console.log("zoomer:" + (zoomer))
-        // console.log("event"+ e)
-        // e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
-        // e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
-        // x = offsetX/zoomer.offsetWidth*100
-        // y = offsetY/zoomer.offsetHeight*100
-        // zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        var offsetX;
+        var offsetY;
+        e.nativeEvent.offsetX ? offsetX = e.nativeEvent.offsetX : offsetX = e.nativeEvent.touches[0].pageX
+        e.nativeEvent.offsetY ? offsetY = e.nativeEvent.offsetY : offsetX = e.nativeEvent.touches[0].pageX
+        var x = offsetX/zoomer.offsetWidth*100
+        var y = offsetY/zoomer.offsetHeight*100
+        zoomer.style.backgroundPosition = x + '% ' + y + '%';
       }
 
     return (
         <>
-            {/* <img id={id} src={img} alt="sida" className="profile-image"/> */}
-            <figure className="zoom" onMouseMove={e => zoom(e)} style={{"background-image":`url(${img}`}}>
+            <figure className="zoom" onMouseMove={zoom} style={{"background-image":`url(${img}`}}>
                 <img src={img} alt={alt}/>
             </figure>
         </>
