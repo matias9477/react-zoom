@@ -15,7 +15,7 @@ const Zoom = ({img, id, alt}) =>{
 
     return (
         <>
-            <figure className="zoom" onMouseMove={zoom} style={{"background-image":`url(${img}`}}>
+            <figure className="zoom" onMouseMove={zoom} style={{backgroundImage:`url(${img}`}}>
                 <img src={img} alt={alt} id={id}/>
             </figure>
         </>
